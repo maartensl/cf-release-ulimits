@@ -62,6 +62,9 @@ case $1 in
     echo /var/vcap/sys/cores/core-%e-%s-%p-%t > /proc/sys/kernel/core_pattern
 
     ulimit -c unlimited
+    ulimit -n 10000
+    ulimit -l unlimited
+    ulimit -u unlimited
 
     <% if_p("syslog_aggregator") do %>
     # TODO(kowshik): Configure Steno to write to the correct files.
